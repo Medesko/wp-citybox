@@ -22,7 +22,6 @@ Go to the Dashboard’s Plugins page and you see the new plugin listed and click
 Place to post, page, widget Content Shortcodes   
 ```
 [city]
-
 ```
 <a href="http://onepassionate.com/">Demo</a> 
 
