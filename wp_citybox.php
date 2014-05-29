@@ -24,7 +24,7 @@ class mycityBox {
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'addMetabox' ) );
 		add_action( 'save_post', array( $this, 'saveMetabox' ) );
-		add_shortcode( 'citybox', 'cityBox' );
+		add_shortcode( 'city', 'cityBox' );
 	}
 
 	public function addMetabox( $post_type ) {
@@ -44,7 +44,6 @@ class mycityBox {
 	/* Rendering the Meta Box */
 	public function MetaCitybox( $post ) {
 		$value = get_post_meta( $post->ID, '_city_box', true );
-		
 		echo '<input type="text" id="city_box" name="city_box" value="' . esc_attr( $value ) . '" />';
 		
 		// echo '<label for="city_box">Selectionnez votre ville : </label>';
@@ -78,9 +77,10 @@ class mycityBox {
 
 	}
 
-	public function cityBox() {
+	public function cityBox($atts, $content=null) {
 		global $post;
 		$city = get_post_meta( $post->ID, '_city_box', true );
+		var_dump($city);
 		return  $city;
 	}
 
