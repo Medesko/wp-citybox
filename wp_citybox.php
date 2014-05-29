@@ -79,11 +79,9 @@ class mycityBox {
 	}
 
 	public function cityBox() {
-	  global $post;
-	  $city = get_post_meta( $post->ID, '_city_box', true );
-	  var_dump($city);
-
-      return  $city;
+		global $post;
+		$city = get_post_meta( $post->ID, '_city_box', true );
+		return  $city;
 	}
 
 }
