@@ -25,8 +25,8 @@ add Shortcodes in post, page, widget Content
 ```
 To insert in template file  
 ```
-$meta = get_post_meta($post->ID, '_city_box', true);
-						echo $meta; 
+$city = get_post_meta($post->ID, '_city_box', true);
+	echo $city; 
 ```
 <a href="http://onepassionate.com/">Demo</a> 
 
