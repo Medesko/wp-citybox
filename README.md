@@ -1,6 +1,5 @@
 WP Citybox plugin
 ============
-##Goals
 2) create a plugin which
 
                 a) allows to add a city name to a post
