@@ -19,9 +19,14 @@ Upload the plugin folder to the /wp-content/plugins directory on your web server
 
 Go to the Dashboard’s Plugins page and you see the new plugin listed and click to active.
 
-Place to post, page, widget Content Shortcodes   
+add Shortcodes in post, page, widget Content    
 ```
 [city]
+```
+To insert in template file  
+```
+$meta = get_post_meta($post->ID, '_city_box', true);
+						echo $meta; 
 ```
 <a href="http://onepassionate.com/">Demo</a> 
 
