@@ -1,11 +1,13 @@
 WP Citybox plugin
 ============
 ##Goals
-a) allows to add a city name to a post
+2) create a plugin which
 
-b) lets posts be searchable using WordPress search by city
+                a) allows to add a city name to a post
 
-c) should display by adding a shortcut code
+                b) lets posts be searchable using WordPress search by city
+
+                c) should display by adding a shortcut code:
 
 
 ## How use  
