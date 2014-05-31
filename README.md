@@ -30,6 +30,6 @@ To insert in template file
 $city = get_post_meta($post->ID, '_city_box', true);
 	echo $city; 
 ```
-<a href="http://onepassionate.com/">Demo</a> 
+<a href="http://onepassionate.com/">Demo</a> work with current WordPress and Twenty Thirteen theme
 
 
