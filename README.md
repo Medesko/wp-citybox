@@ -10,7 +10,7 @@ WP Citybox plugin
 
 
 ## How use  
-Unzip the plugin files.
+Download and Unzip the plugin files.
 
 Connect to your site’s server using FTP.
 
@@ -31,4 +31,6 @@ $city = get_post_meta($post->ID, '_city_box', true);
 ```
 <a href="http://onepassionate.com/">Demo</a> work with current WordPress and Twenty Thirteen theme
 
+![ScreenShoot](http://medesko.com/Citybox.png)
+![ScreenShoot2](http://medesko.com/Citybox-input.png)
 
