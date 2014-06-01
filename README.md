@@ -33,4 +33,5 @@ $city = get_post_meta($post->ID, '_city_box', true);
 
 ![ScreenShoot](http://medesko.com/Citybox.png)
 ![ScreenShoot2](http://medesko.com/Citybox-input.png)
+![ScreenShoot2](http://medesko.com/screenshot.png)
 
