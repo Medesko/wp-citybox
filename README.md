@@ -1,4 +1,4 @@
-WP Citybox plugin
+WP plugin test
 ============
 2) create a plugin which
 
