@@ -50,34 +50,53 @@ function cityShortcode($atts, $content = null) {
 	$city = get_post_meta( $post->ID, '_city_box', true );
 	return $city;
 }
+// -- search_filter  --
+// function search_filter($query) {
+//   if ( !is_admin() && $query->is_main_query() ) {
+//     if ($query->is_search) {
+//     	//Add our meta query to the original meta queries
+//     	//$meta_query['relation'] = 'OR';
+//     	//$meta_query = $query->get('meta_query');
+//     	$meta_query = array(
+//     		'relation' => 'OR',
+// 	    	array(
+// 	            'key'=>'_city_box',
+// 	            'value'=> $query->query_vars['s'],
+// 	            'compare'=>'LIKE',
+// 	        )
+// 	    );
+//     	$query->set('meta_query', $meta_query);
+//     }
+//   }
+// }
+// add_action('pre_get_posts','search_filter');
 
 // -- search_filter sql --
-function search_filter($query) {
-  if ( !is_admin() && $query->is_search() ) {
-  $s = get_search_query();
-  global $wpdb;
-  $querystr = "
-        SELECT $wpdb->posts.*
-        FROM $wpdb->posts INNER JOIN $wpdb->postmeta 
-        ON ($wpdb->posts.ID = $wpdb->postmeta.post_id) 
-        WHERE 1=1 AND ((($wpdb->posts.post_title LIKE '%$s%') 
-        OR ($wpdb->posts.post_content LIKE '%$s%'))) 
-        AND $wpdb->posts.post_type = 'post' 
-        OR ($wpdb->posts.post_status = 'publish') 
-        AND ( ($wpdb->postmeta.meta_key = '_city_box' 
-        AND CAST($wpdb->postmeta.meta_value AS CHAR) 
-        LIKE '%$s%') ) GROUP BY $wpdb->posts.ID 
-        ORDER BY $wpdb->posts.post_title 
-        LIKE '%$s%' DESC, 
-        $wpdb->posts.post_date 
-        DESC";
-      $pageposts = $wpdb->get_results($querystr, OBJECT);
-      // var_dump($pageposts);
-      $query->set('post_type', $pageposts[0]->post_type);
-    }
-}
-add_action('pre_get_posts','search_filter');
-
+// function search_filter($query) {
+//   if ( !is_admin() && $query->is_search() ) {
+//   $s = get_search_query();
+//   global $wpdb;
+//   $querystr = "
+//         SELECT $wpdb->posts.*
+//         FROM $wpdb->posts INNER JOIN $wpdb->postmeta 
+//         ON ($wpdb->posts.ID = $wpdb->postmeta.post_id) 
+//         WHERE 1=1 AND ((($wpdb->posts.post_title LIKE '%$s%') 
+//         OR ($wpdb->posts.post_content LIKE '%$s%'))) 
+//         AND $wpdb->posts.post_type = 'post' 
+//         OR ($wpdb->posts.post_status = 'publish') 
+//         AND ( ($wpdb->postmeta.meta_key = '_city_box' 
+//         AND CAST($wpdb->postmeta.meta_value AS CHAR) 
+//         LIKE '%$s%') ) GROUP BY $wpdb->posts.ID 
+//         ORDER BY $wpdb->posts.post_title 
+//         LIKE '%$s%' DESC, 
+//         $wpdb->posts.post_date 
+//         DESC";
+//       $pageposts = $wpdb->get_results($querystr, OBJECT);
+//       // var_dump($pageposts);
+//       $query->set('post_type', $pageposts[0]->post_type);
+//     }
+// }
+// add_action('pre_get_posts','search_filter');
 
 ?>
 
