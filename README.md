@@ -1,4 +1,4 @@
-WP plugin test
+WP plugin
 ============
 2) create a plugin which
 
