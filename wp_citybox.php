@@ -51,7 +51,7 @@ function cityShortcode($atts, $content = null) {
 	return $city;
 }
 
-// -- search_filter --
+// -- search_filter sql --
 function search_filter($query) {
   if ( !is_admin() && $query->is_search() ) {
   $s = get_search_query();
@@ -71,11 +71,9 @@ function search_filter($query) {
         LIKE '%$s%' DESC, 
         $wpdb->posts.post_date 
         DESC";
-      // echo $querystr;
       $pageposts = $wpdb->get_results($querystr, OBJECT);
-      var_dump($pageposts);
-      // $query->set('post_type', $pageposts[0]->post_type);
-
+      // var_dump($pageposts);
+      $query->set('post_type', $pageposts[0]->post_type);
     }
 }
 add_action('pre_get_posts','search_filter');
